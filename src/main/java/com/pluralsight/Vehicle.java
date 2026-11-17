@@ -45,19 +45,30 @@ public class Vehicle extends Asset {
         if (age < 0) {
             throw new IllegalStateException("Vehicle year is in the future: " + year);
         }
+
+        BigDecimal value;
+
         if (age > 10) {
-            return new BigDecimal("1000.00");
-        }
-        BigDecimal ratePerYear;
-        if (age <= 3) {
-            ratePerYear = new BigDecimal("0.03");
-        } else if (age <= 6) {
-            ratePerYear = new BigDecimal("0.06");
+            value = new BigDecimal("1000.00");
         } else {
-            ratePerYear = new BigDecimal("0.08");
+            BigDecimal ratePerYear;
+
+            if (age <= 3) {
+                ratePerYear = new BigDecimal("0.03");
+            } else if (age <= 6) {
+                ratePerYear = new BigDecimal("0.06");
+            } else {
+                ratePerYear = new BigDecimal("0.08");
+            }
+
+            BigDecimal reduction = getOriginalCost().multiply(ratePerYear).multiply(BigDecimal.valueOf(age));
+            value = getOriginalCost().subtract(reduction);
         }
 
-        BigDecimal reduction = getOriginalCost().multiply(ratePerYear).multiply(BigDecimal.valueOf(age));
-        return getOriginalCost().subtract(reduction);
+        if (odometer > 100000 && !makeModel.toLowerCase().contains("honda") && !makeModel.toLowerCase().contains("toyota")) {
+            value = value.multiply(new BigDecimal("0.75"));
+        }
+
+        return value;
     }
 }
