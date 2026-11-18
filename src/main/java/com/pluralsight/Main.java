@@ -18,8 +18,8 @@ public class Main {
 
             System.out.println("Description: " + asset.getDescription());
             System.out.println("Date bought: " + asset.getDateAcquired());
-            System.out.println("Original cost: " + asset.getOriginalCost());
-            System.out.printf("Current Value: $%.2f%n", asset.getValue());
+            System.out.printf("Original cost: $%,.2f%n", asset.getOriginalCost());
+            System.out.printf("Current Value: $%,.2f%n", asset.getValue());
 
             if (asset instanceof House) {
 
