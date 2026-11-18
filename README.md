@@ -25,3 +25,5 @@ public class Cash extends Asset {
     }
 }
 ```
+## Author
+Anup Ramavarapu, Year Up Java Academy
