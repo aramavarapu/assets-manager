@@ -10,6 +10,8 @@ public class Main {
         assets.add(new House("Tom's house", "2019-10-26", new BigDecimal("300000.00"), "776 Lucky Street", 3, 7000, 9000));
         assets.add(new Vehicle("my car", "2024-06-07", new BigDecimal("120000"), "Mercedes Benz AMG", 2024, 20000));
         assets.add(new Vehicle("Tom's car", "2026-06-07", new BigDecimal("55000"), "Honda Civic", 2026, 10000));
+        assets.add(new Cash("mattress cash", "2026-11-18", new BigDecimal("25000.00")));
+
 
         for (Asset asset : assets) {
             System.out.println("----------------------------");
