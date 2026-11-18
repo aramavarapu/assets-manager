@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
+        // Abstract
 
         ArrayList<Asset> assets = new ArrayList<>();
         assets.add(new House("my house", "2022-10-26", new BigDecimal("600000.00"), "777 Lucky Street", 2, 8000, 11000));
